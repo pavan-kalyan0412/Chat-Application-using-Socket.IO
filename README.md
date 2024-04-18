@@ -22,5 +22,3 @@ Socket.IO is a JavaScript library that enables real-time, bidirectional, and eve
 - Socket.IO
 - HTML/CSS
 - JavaScript
-
-
