@@ -22,8 +22,16 @@ app.use(express.static('public'));
 io.on('connection', (socket) => {
     console.log('A user connected');
 
+    // Emit a welcome message to the new user
+    socket.emit('welcome message', 'welcome to the chat!!');
+
     clients++;
-    io.emit('update clients count', clients)
+
+    // Emit the updated count of connected clients to all other clients
+    socket.broadcast.emit('update clients count', clients);
+
+    // Emit the updated count of connected clients to the new user
+    socket.emit('update clients count', clients);
 
 
     // Event listener for disconnections
@@ -31,7 +39,9 @@ io.on('connection', (socket) => {
         console.log('User disconnected');
 
         clients--;
-        io.emit('update clients count', clients)
+
+        // Emit the updated count of connected clients to all clients
+        io.emit('update clients count', clients);
     });
 
     // Event listener for chat messages

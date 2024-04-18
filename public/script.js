@@ -23,3 +23,10 @@ socket.on('update clients count', (count) => {
     document.getElementById('connected-clients-count').textContent = count;
 });
 
+
+socket.on('welcome message', (message) =>{
+    const messageList = document.getElementById('messages');
+    const listItem = document.createElement('li');
+    listItem.textContent = message;
+    messageList.appendChild(listItem)
+});
