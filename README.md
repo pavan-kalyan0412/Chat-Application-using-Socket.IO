@@ -16,9 +16,64 @@ Socket.IO is a JavaScript library that enables real-time, bidirectional, and eve
 
 - **Event-based Architecture**: Socket.IO simplifies the development of real-time applications by utilizing an event-driven programming model, where actions and responses are triggered by events.
 
-#### Requirements
+### Requirements
 - Node.js
 - Express.js
 - Socket.IO
 - HTML/CSS
 - JavaScript
+
+### Flowchart
+
++-------------------------------------+
+|          Chat Application          |
++-------------------------------------+
+              |
+              v
+     [Start Server]
+              |
+              v
+         [Listen]
+      [for requests]
+              |
+              v
+        [Connection]
+           [Event]
+              |
+              v
+    [On Connection]
+        [Handler]
+              |
+              v
+      [New User is]
+       [Connected]
+              |
+              v
+   [Listen for Input]
+          [Event]
+              |
+              v
+   [On Input Received]
+        [Handler]
+              |
+              v
+    [Broadcast Message]
+        [to Clients]
+              |
+              v
+   [Listen for Disconnect]
+          [Event]
+              |
+              v
+    [On Disconnection]
+        [Handler]
+              |
+              v
+    [User is Disconnected]
+              |
+              v
+    [End Connection]
+              |
+              v
+    [Repeat process for]
+    [each new connection]
