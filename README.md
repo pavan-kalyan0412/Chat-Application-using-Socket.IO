@@ -26,54 +26,58 @@ Socket.IO is a JavaScript library that enables real-time, bidirectional, and eve
 ### Flowchart
 
 +-------------------------------------+
-|          Chat Application          |
+| Chat Application |
 +-------------------------------------+
-              |
-              v
-     [Start Server]
-              |
-              v
-         [Listen]
-      [for requests]
-              |
-              v
-        [Connection]
-           [Event]
-              |
-              v
-    [On Connection]
-        [Handler]
-              |
-              v
-      [New User is]
-       [Connected]
-              |
-              v
-   [Listen for Input]
-          [Event]
-              |
-              v
-   [On Input Received]
-        [Handler]
-              |
-              v
-    [Broadcast Message]
-        [to Clients]
-              |
-              v
-   [Listen for Disconnect]
-          [Event]
-              |
-              v
-    [On Disconnection]
-        [Handler]
-              |
-              v
-    [User is Disconnected]
-              |
-              v
-    [End Connection]
-              |
-              v
-    [Repeat process for]
-    [each new connection]
+|
+v
+[Start Server]
+|
+v
+[Listen]
+[for requests]
+|
+v
+[Connection]
+[Event]
+|
+v
+[On Connection]
+[Handler]
+|
+v
+[New User is]
+[Connected]
+|
+v
+[Listen for Input]
+[Event]
+|
+v
+[On Input Received]
+[Handler]
+|
+v
+[Broadcast Message]
+[to Clients]
+|
+v
+[Listen for Disconnect]
+[Event]
+|
+v
+[On Disconnection]
+[Handler]
+|
+v
+[User is Disconnected]
+|
+v
+[End Connection]
+|
+v
+[Repeat process for]
+[each new connection]
+
+
+This flowchart illustrates the process flow of the chat application using Socket.IO, including handling connections, disconnections, sending messages, and appending messages to the chat window.
+
