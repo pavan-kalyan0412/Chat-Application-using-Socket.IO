@@ -16,13 +16,22 @@ const io = socketIo(server);
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
 
+  var clients = 0
+
 // Event listener for new connections
 io.on('connection', (socket) => {
     console.log('A user connected');
 
+    clients++;
+    io.emit('update clients count', clients)
+
+
     // Event listener for disconnections
     socket.on('disconnect', () => {
         console.log('User disconnected');
+
+        clients--;
+        io.emit('update clients count', clients)
     });
 
     // Event listener for chat messages

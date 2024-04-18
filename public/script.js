@@ -17,3 +17,9 @@ socket.on('chat message', (msg) => {  // Event listener for receiving chat messa
     messageList.appendChild(listItem);  // Append the list item to the message list
 });
 
+// Event listener for updating the count of connected clients
+socket.on('update clients count', (count) => {
+    // Update the UI with the count of connected clients
+    document.getElementById('connected-clients-count').textContent = count;
+});
+

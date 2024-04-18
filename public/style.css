@@ -21,3 +21,44 @@ form button {
     width: 18%;
     padding: 10px;
 }
+
+/* style.css */
+
+/* Style for the message list */
+#messages {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0;
+    margin: 0;
+}
+
+/* Style for each chat message */
+#messages li {
+    background-color: #74ddeb; /* Light gray background */
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Style for the input field */
+#input {
+    width: 70%; /* Adjust the width as needed */
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style for the send button */
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hover effect for the send button */
+button:hover {
+    background-color: #45a049; /* Darker green */
+}
