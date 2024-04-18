@@ -1,4 +1,3 @@
-// app.js
 
 // Import required modules
 const express = require('express');  // Import Express.js framework
