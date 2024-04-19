@@ -14,6 +14,8 @@
     <input type="text" id="roomInput">
     <button onclick="joinRoom()">Join Room</button>
 
+    <p id="currentRoom">Current Room: None</p>
+    <hr>
     <ul id="messages"></ul>
 
     <script src="/socket.io/socket.io.js"></script>
@@ -28,6 +30,7 @@
         function joinRoom() {
             const room = document.getElementById('roomInput').value;
             socket.emit('join room', room);
+            document.getElementById('currentRoom').textContent = `Current Room: ${room}`;
         }
 
         function getCurrentRoom() {
