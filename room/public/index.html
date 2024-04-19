@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket.IO Chat</title>
+</head>
+<body>
+    <h1>Socket.IO Chat</h1>
+    <input type="text" id="messageInput">
+    <button onclick="sendMessage()">Send</button>
+
+    <h2>Chat Room</h2>
+    <input type="text" id="roomInput">
+    <button onclick="joinRoom()">Join Room</button>
+
+    <ul id="messages"></ul>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        function sendMessage() {
+            const message = document.getElementById('messageInput').value;
+            socket.emit('chat message', message, getCurrentRoom());
+        }
+
+        function joinRoom() {
+            const room = document.getElementById('roomInput').value;
+            socket.emit('join room', room);
+        }
+
+        function getCurrentRoom() {
+            return document.getElementById('roomInput').value;
+        }
+
+        socket.on('chat message', (msg) => {
+            const messages = document.getElementById('messages');
+            const li = document.createElement('li');
+            li.textContent = msg;
+            messages.appendChild(li);
+        });
+
+        socket.on('room joined', (room) => {
+            console.log(`Joined room: ${room}`);
+        });
+    </script>
+</body>
+</html> 
+
