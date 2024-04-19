@@ -30,3 +30,19 @@ socket.on('welcome message', (message) =>{
     listItem.textContent = message;
     messageList.appendChild(listItem)
 });
+
+
+socket.on('user connected', (message) => {
+    const messageList = document.getElementById('messages');
+    const listItem = document.createElement('li');
+    listItem.textContent = message;
+    messageList.appendChild(listItem);
+});
+
+// Event listener for user disconnected
+socket.on('user disconnected', (message) => {
+    const messageList = document.getElementById('messages');
+    const listItem = document.createElement('li');
+    listItem.textContent = message;
+    messageList.appendChild(listItem);
+});

@@ -25,6 +25,9 @@ io.on('connection', (socket) => {
     // Emit a welcome message to the new user
     socket.emit('welcome message', 'welcome to the chat!!');
 
+    socket.broadcast.emit('user connected', 'A user Connected');
+
+
     clients++;
 
     // Emit the updated count of connected clients to all other clients
@@ -39,6 +42,8 @@ io.on('connection', (socket) => {
         console.log('User disconnected');
 
         clients--;
+        
+        socket.broadcast.emit('user disconnected', 'A user Disconnected');
 
         // Emit the updated count of connected clients to all clients
         io.emit('update clients count', clients);
