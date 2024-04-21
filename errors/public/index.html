@@ -6,42 +6,54 @@
     <title>Socket.IO Chat</title>
 </head>
 <body>
-    <h1>Socket.IO Chat</h1>
+    <!-- <h1>Socket.IO Chat</h1>
     <input type="text" id="messageInput">
     <button onclick="sendMessage()">Send</button>
 
-    <ul id="messages"></ul>
+    <ul id="messages"></ul> -->
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
         const socket = io();
 
-        // Handle errors
-        socket.on('error', (error) => {
-            console.error('Socket error:', error);
-        });
+// Emit the 'trigger error' event to the server
+socket.emit('trigger error');
 
-        // Handle successful reconnections
-        socket.on('reconnect', (attemptNumber) => {
-            console.log(`Socket reconnected (attempt ${attemptNumber})`);
-        });
+// Listen for the 'error' event from the server
+socket.on('error', (errorMessage) => {
+    console.error('Server error:', errorMessage);
+});
 
-        // Handle failed reconnections
-        socket.on('reconnect_failed', () => {
-            console.error('Socket reconnection failed');
-        });
 
-        function sendMessage() {
-            const message = document.getElementById('messageInput').value;
-            socket.emit('chat message', message);
-        }
 
-        socket.on('chat message', (msg) => {
-            const messages = document.getElementById('messages');
-            const li = document.createElement('li');
-            li.textContent = msg;
-            messages.appendChild(li);
-        });
+
+
+        // // Handle errors
+        // socket.on('error', (error) => {
+        //     console.error('Socket error:', error);
+        // });
+
+        // // Handle successful reconnections
+        // socket.on('reconnect', (attemptNumber) => {
+        //     console.log(`Socket reconnected (attempt ${attemptNumber})`);
+        // });
+
+        // // Handle failed reconnections
+        // socket.on('reconnect_failed', () => {
+        //     console.error('Socket reconnection failed');
+        // });
+
+        // function sendMessage() {
+        //     const message = document.getElementById('messageInput').value;
+        //     socket.emit('chat message', message);
+        // }
+
+        // socket.on('chat message', (msg) => {
+        //     const messages = document.getElementById('messages');
+        //     const li = document.createElement('li');
+        //     li.textContent = msg;
+        //     messages.appendChild(li);
+        // });
     </script>
 </body>
 </html>
